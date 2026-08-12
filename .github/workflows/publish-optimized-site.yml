@@ -50,7 +50,7 @@ jobs:
           def fetch(path):
               destination = root / path
               destination.parent.mkdir(parents=True, exist_ok=True)
-              url = f"{base}/{urllib.parse.quote(path, safe='/')}"
+              url = f"{base}/{urllib.parse.quote(path, safe='/')}?v=93df4d2"
               last_error = None
               for attempt in range(5):
                   try:
