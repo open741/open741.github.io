@@ -94,7 +94,12 @@ jobs:
               f"assets/reference/{path}"
               for path in relative_reference_pattern.findall(combined)
           )
-          asset_files = sorted(asset_files)
+          renamed_assets = {
+              "assets/brand/hermit-crab-logo.png": "assets/brand/hermit-crab-logo.jpg",
+              "assets/reference/2024/11/coenobita_compressus_maleupdated.png": "assets/reference/2024/11/coenobita_compressus_maleupdated.jpg",
+              "assets/reference/2025/04/coenobita_longitarsis_toppic.png": "assets/reference/2025/04/coenobita_longitarsis_toppic.jpg",
+          }
+          asset_files = sorted(renamed_assets.get(path, path) for path in asset_files)
           with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
               list(pool.map(fetch, asset_files))
 
