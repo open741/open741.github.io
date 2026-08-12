@@ -1,6 +1,11 @@
 const atlasArticle = document.querySelector("#atlasArticle");
+const ASSET_VERSION = "20260812-opt1";
 
 let catalog = [];
+
+function versionedAsset(path) {
+  return `${path}${path.includes("?") ? "&" : "?"}v=${ASSET_VERSION}`;
+}
 
 function selectedSpecies() {
   const requested = new URLSearchParams(window.location.search).get("species");
@@ -24,7 +29,7 @@ function renderSpecies(species) {
         <h1>${species.name}</h1>
         <p class="atlas-latin">${species.scientificName}</p>
       </div>
-      <img src="${species.cover}" alt="${species.name}" />
+      <img src="${versionedAsset(species.cover)}" alt="${species.name}" />
     </header>
     <div class="atlas-source-content">${species.content}</div>
     <div class="atlas-end-actions">
@@ -37,6 +42,10 @@ function renderSpecies(species) {
 function sanitizeAtlasContent() {
   const content = atlasArticle.querySelector(".atlas-source-content");
   if (!content) return;
+
+  content.querySelectorAll('img[src^="assets/"]').forEach((image) => {
+    image.src = versionedAsset(image.getAttribute("src"));
+  });
 
   content.querySelectorAll("a").forEach((link) => {
     const label = link.textContent.trim();
@@ -78,12 +87,12 @@ function sanitizeAtlasContent() {
 
 async function loadAtlas() {
   try {
-    const catalogResponse = await fetch("atlas-data/index.json");
+    const catalogResponse = await fetch(`atlas-data/index.json?v=${ASSET_VERSION}`);
     if (!catalogResponse.ok) throw new Error("图鉴目录读取失败");
     catalog = await catalogResponse.json();
     const activeKey = selectedSpecies();
 
-    const speciesResponse = await fetch(`atlas-data/${activeKey}.json`);
+    const speciesResponse = await fetch(`atlas-data/${activeKey}.json?v=${ASSET_VERSION}`);
     if (!speciesResponse.ok) throw new Error("物种图鉴读取失败");
     renderSpecies(await speciesResponse.json());
   } catch (error) {

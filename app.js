@@ -1,5 +1,5 @@
 const IMAGE_BASE = "assets/reference";
-const IMAGE_VERSION = "20260812";
+const IMAGE_VERSION = "20260812-opt1";
 
 const results = {
   brevimanus: species("短掌陆寄居蟹", "Coenobita brevimanus", "2020/09/coenobita_brevimanus_14.jpg", "coenobita_brevimanus_ch.htm"),
