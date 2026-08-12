@@ -1,0 +1,142 @@
+[
+  {
+    "key": "brevimanus",
+    "name": "短掌陆寄居蟹",
+    "scientificName": "Coenobita brevimanus",
+    "cover": "assets/reference/2020/09/coenobita_brevimanus_14.jpg",
+    "imageCount": 30
+  },
+  {
+    "key": "clypeatus",
+    "name": "西伯利斯陆寄居蟹",
+    "scientificName": "Coenobita clypeatus",
+    "cover": "assets/reference/2020/09/coenobita_clypeatus_16.jpg",
+    "imageCount": 33
+  },
+  {
+    "key": "violascens",
+    "name": "深紫陆寄居蟹",
+    "scientificName": "Coenobita violascens",
+    "cover": "assets/reference/2020/09/coenobita_violascens_9.jpg",
+    "imageCount": 21
+  },
+  {
+    "key": "compressus",
+    "name": "厄瓜多尔产陆寄居蟹",
+    "scientificName": "Coenobita compressus",
+    "cover": "assets/reference/2020/09/coenobita_compressus_18.jpg",
+    "imageCount": 41
+  },
+  {
+    "key": "cavipes",
+    "name": "凹足陆寄居蟹",
+    "scientificName": "Coenobita cavipes",
+    "cover": "assets/reference/2020/09/coenobita_cavipes_15.jpg",
+    "imageCount": 29
+  },
+  {
+    "key": "lila",
+    "name": "淡紫陆寄居蟹",
+    "scientificName": "Coenobita lila",
+    "cover": "assets/reference/2020/09/coenobita_lila_19.jpg",
+    "imageCount": 32
+  },
+  {
+    "key": "moluccensis",
+    "name": "摩鹿加陆寄居蟹",
+    "scientificName": "Coenobita moluccensis",
+    "cover": "assets/reference/2025/05/coenobita_moluccensis_toppic.jpg",
+    "imageCount": 0
+  },
+  {
+    "key": "patsyae",
+    "name": "帕西陆寄居蟹",
+    "scientificName": "Coenobita patsyae",
+    "cover": "assets/reference/2025/05/coenobita_patsyae_cover.jpg",
+    "imageCount": 0
+  },
+  {
+    "key": "celebensis",
+    "name": "西里伯陆寄居蟹",
+    "scientificName": "Coenobita celebensis",
+    "cover": "assets/reference/2025/05/coenobita_celebensis_toppic.jpg",
+    "imageCount": 2
+  },
+  {
+    "key": "longitarsis",
+    "name": "长趾陆寄居蟹",
+    "scientificName": "Coenobita longitarsis",
+    "cover": "assets/reference/2025/04/coenobita_longitarsis_toppic.png",
+    "imageCount": 0
+  },
+  {
+    "key": "spinosus",
+    "name": "棘足陆寄居蟹",
+    "scientificName": "Coenobita spinosus",
+    "cover": "assets/reference/2020/09/coenobita_spinosus_17.jpg",
+    "imageCount": 25
+  },
+  {
+    "key": "rugosus",
+    "name": "灰白陆寄居蟹",
+    "scientificName": "Coenobita rugosus",
+    "cover": "assets/reference/2023/04/rugosusridge-1.jpg",
+    "imageCount": 27
+  },
+  {
+    "key": "pseudorugosus",
+    "name": "伪灰白陆寄居蟹",
+    "scientificName": "Coenobita pseudorugosus",
+    "cover": "assets/reference/2025/04/coenobita-pseudorugosus_toppic.jpg",
+    "imageCount": 19
+  },
+  {
+    "key": "granularis",
+    "name": "颗粒陆寄居蟹",
+    "scientificName": "Coenobita granularis",
+    "cover": "assets/reference/2025/05/coenobita_granularis_5-2048x1365.jpg",
+    "imageCount": 0
+  },
+  {
+    "key": "perlatus",
+    "name": "橙红陆寄居蟹",
+    "scientificName": "Coenobita perlatus",
+    "cover": "assets/reference/2020/09/coenobita_perlatus_toppic.jpg",
+    "imageCount": 21
+  },
+  {
+    "key": "carnescens",
+    "name": "Coenobita carnescens",
+    "scientificName": "Coenobita carnescens",
+    "cover": "assets/reference/2020/09/coenobita_carnescens_toppic.jpg",
+    "imageCount": 11
+  },
+  {
+    "key": "purpureus",
+    "name": "紫陆寄居蟹",
+    "scientificName": "Coenobita purpureus",
+    "cover": "assets/reference/2020/09/coenobita_purpureus_16.jpg",
+    "imageCount": 29
+  },
+  {
+    "key": "variabilis",
+    "name": "澳洲产陆寄居蟹",
+    "scientificName": "Coenobita variabilis",
+    "cover": "assets/reference/2020/09/coenobita_variabilis_7.jpg",
+    "imageCount": 27
+  },
+  {
+    "key": "scaevola",
+    "name": "红海产陆寄居蟹",
+    "scientificName": "Coenobita scaevola",
+    "cover": "assets/reference/2020/09/coenobita_scaevola_13.jpg",
+    "imageCount": 31
+  },
+  {
+    "key": "rubescens",
+    "name": "西非产陆寄居蟹",
+    "scientificName": "Coenobita rubescens",
+    "cover": "assets/reference/2020/09/coenobita_rubescens_4.jpg",
+    "imageCount": 22
+  }
+]
