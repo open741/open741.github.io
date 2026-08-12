@@ -1,5 +1,5 @@
 const IMAGE_BASE = "assets/reference";
-const IMAGE_VERSION = "20260812-opt1";
+const IMAGE_VERSION = "20260812-fix2";
 
 const results = {
   brevimanus: species("短掌陆寄居蟹", "Coenobita brevimanus", "2020/09/coenobita_brevimanus_14.jpg", "coenobita_brevimanus_ch.htm"),
@@ -11,7 +11,7 @@ const results = {
   moluccensis: species("摩鹿加陆寄居蟹", "Coenobita moluccensis", "2025/05/coenobita_moluccensis_toppic.jpg", "coenobita_moluccensis_ch.htm"),
   patsyae: species("帕西陆寄居蟹", "Coenobita patsyae", "2025/05/coenobita_patsyae_cover.jpg", "coenobita_patsyae_ch.htm"),
   celebensis: species("西里伯陆寄居蟹", "Coenobita celebensis", "2025/05/coenobita_celebensis_toppic.jpg", "coenobita_celebensis_ch.htm"),
-  longitarsis: species("长趾陆寄居蟹", "Coenobita longitarsis", "2025/04/coenobita_longitarsis_toppic.png", "coenobita_longitarsis_ch.htm"),
+  longitarsis: species("长趾陆寄居蟹", "Coenobita longitarsis", "2025/04/coenobita_longitarsis_toppic.jpg", "coenobita_longitarsis_ch.htm"),
   spinosus: species("棘足陆寄居蟹", "Coenobita spinosus", "2020/09/coenobita_spinosus_17.jpg", "coenobita_spinosus_ch.htm"),
   rugosus: species("灰白陆寄居蟹", "Coenobita rugosus", "2023/04/rugosusridge-1.jpg", "coenobita_rugosus_ch.htm"),
   pseudorugosus: species("伪灰白陆寄居蟹", "Coenobita pseudorugosus", "2025/04/coenobita-pseudorugosus_toppic.jpg", "coenobita_pseudorugosus_ch.htm"),
@@ -68,7 +68,7 @@ const nodes = {
       option("5c. 眼柄颜色跟体色一致，左螯脚长节有轻微的黄色或橙色色斑，第一和第二触角呈褐色 → 摩鹿加陆寄居蟹", "2025/05/coenobita_moluccensis_toppic.jpg", null, "moluccensis"),
       option("5b. 眼柄眼色呈白色或淡黄，左螯脚长节有不同呈度的黄色或橙色色斑，第一和第二触角呈橙色 → 帕西陆寄居蟹", "2025/05/coenobita_patsyae_cover.jpg", null, "patsyae"),
       option("5e. 眼柄眼色呈白色或淡黄，左螯脚长节有明显黄色或橙色色斑，第一和第二触角呈橙色 → 西里伯陆寄居蟹", "2025/05/coenobita_celebensis_toppic.jpg", null, "celebensis"),
-      option("5f. 外表跟凹足陆寄居蟹很相似，但第三胸足十分幼细和修长 → 长趾陆寄居蟹", "2025/04/coenobita_longitarsis_toppic.png", null, "longitarsis"),
+      option("5f. 外表跟凹足陆寄居蟹很相似，但第三胸足十分幼细和修长 → 长趾陆寄居蟹", "2025/04/coenobita_longitarsis_toppic.jpg", null, "longitarsis"),
       option("5g. 身体各部分具有很多锐棘, 体色是暗红色系 → 棘足陆寄居蟹", "2020/09/coenobita_spinosus_17.jpg", null, "spinosus")
     ]
   },
