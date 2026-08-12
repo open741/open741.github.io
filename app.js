@@ -1,4 +1,5 @@
 const IMAGE_BASE = "assets/reference";
+const IMAGE_VERSION = "20260812";
 
 const results = {
   brevimanus: species("短掌陆寄居蟹", "Coenobita brevimanus", "2020/09/coenobita_brevimanus_14.jpg", "coenobita_brevimanus_ch.htm"),
@@ -114,11 +115,11 @@ const headerReset = document.querySelector("#headerReset");
 
 function species(name, scientificName, imagePath, detailPath) {
   const reference = detailPath.replace(/^coenobita_/, "").replace(/_ch\.htm$/, "");
-  return { name, scientificName, image: `${IMAGE_BASE}/${imagePath}`, reference };
+  return { name, scientificName, image: `${IMAGE_BASE}/${imagePath}?v=${IMAGE_VERSION}`, reference };
 }
 
 function option(label, imagePath, next = null, result = null) {
-  return { label, image: `${IMAGE_BASE}/${imagePath}`, next, result };
+  return { label, image: `${IMAGE_BASE}/${imagePath}?v=${IMAGE_VERSION}`, next, result };
 }
 
 function displayOptionLabel(label) {
