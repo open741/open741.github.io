@@ -1,0 +1,110 @@
+name: Replace legacy site
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - .github/workflows/replace-site.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  replace:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download the current site
+        env:
+          SITE_BASE: https://land-hermit-crab-id.open741.chatgpt.site
+        run: |
+          python3 <<'PY'
+          import concurrent.futures
+          import json
+          import os
+          import pathlib
+          import re
+          import shutil
+          import time
+          import urllib.parse
+          import urllib.request
+
+          base = os.environ["SITE_BASE"].rstrip("/")
+          root = pathlib.Path(os.environ["RUNNER_TEMP"]) / "hermit-crab-site"
+          root.mkdir(parents=True, exist_ok=True)
+
+          core = [
+              "index.html",
+              "atlas.html",
+              "styles.css",
+              "atlas.css",
+              "app.js",
+              "atlas.js",
+              "atlas-data/index.json",
+              "atlas-data/manifest.json",
+          ]
+
+          def fetch(path):
+              destination = root / path
+              destination.parent.mkdir(parents=True, exist_ok=True)
+              url = f"{base}/{urllib.parse.quote(path, safe='/')}"
+              last_error = None
+              for attempt in range(5):
+                  try:
+                      request = urllib.request.Request(
+                          url,
+                          headers={"User-Agent": "open741-site-migration/1.0"},
+                      )
+                      with urllib.request.urlopen(request, timeout=120) as response:
+                          if response.status != 200:
+                              raise RuntimeError(f"{path}: HTTP {response.status}")
+                          with destination.open("wb") as output:
+                              shutil.copyfileobj(response, output)
+                      return path
+                  except Exception as error:
+                      last_error = error
+                      time.sleep(2 ** attempt)
+              raise RuntimeError(f"Could not download {path}: {last_error}")
+
+          for path in core:
+              fetch(path)
+
+          catalog = json.loads((root / "atlas-data/index.json").read_text())
+          species_files = [f"atlas-data/{item['key']}.json" for item in catalog]
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+              list(pool.map(fetch, species_files))
+
+          text_files = core + species_files
+          combined = "\n".join(
+              (root / path).read_text(errors="ignore") for path in text_files
+          )
+          asset_pattern = re.compile(
+              r"assets/[A-Za-z0-9_./@-]+\.(?:jpe?g|png|gif|webp|svg|mp4)",
+              re.IGNORECASE,
+          )
+          asset_files = sorted(set(asset_pattern.findall(combined)))
+          with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
+              list(pool.map(fetch, asset_files))
+
+          missing = [path for path in text_files + asset_files if not (root / path).is_file()]
+          if missing:
+              raise RuntimeError(f"Missing downloaded files: {missing[:10]}")
+          if len(asset_files) < 670:
+              raise RuntimeError(f"Expected at least 670 referenced assets, got {len(asset_files)}")
+
+          (root / ".nojekyll").touch()
+          print(f"Prepared {len(text_files) + len(asset_files)} site files")
+          PY
+
+      - name: Replace the legacy site
+        run: |
+          git rm -r --ignore-unmatch .
+          cp -R "$RUNNER_TEMP/hermit-crab-site/." .
+          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Replace legacy blog with hermit crab identifier"
+          git push origin master
