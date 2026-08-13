@@ -113,6 +113,27 @@ let state = { current: "1", history: [], result: null };
 const app = document.querySelector("#app");
 const headerReset = document.querySelector("#headerReset");
 
+function mirrorVisitCount() {
+  const source = document.querySelector("#vercount_value_site_pv");
+  const mirrors = document.querySelectorAll("[data-visit-count-mirror]");
+  if (!source || !mirrors.length) return;
+
+  const updateMirrors = () => {
+    mirrors.forEach((mirror) => {
+      mirror.textContent = source.textContent;
+    });
+  };
+
+  updateMirrors();
+  new MutationObserver(updateMirrors).observe(source, {
+    childList: true,
+    characterData: true,
+    subtree: true
+  });
+}
+
+mirrorVisitCount();
+
 function species(name, scientificName, imagePath, detailPath) {
   const reference = detailPath.replace(/^coenobita_/, "").replace(/_ch\.htm$/, "");
   return { name, scientificName, image: `${IMAGE_BASE}/${imagePath}?v=${IMAGE_VERSION}`, reference };
